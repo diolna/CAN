@@ -1,0 +1,72 @@
+
+CanHacker.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000066  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	19 c0       	rjmp	.+50     	; 0x36 <__bad_interrupt>
+   4:	18 c0       	rjmp	.+48     	; 0x36 <__bad_interrupt>
+   6:	17 c0       	rjmp	.+46     	; 0x36 <__bad_interrupt>
+   8:	16 c0       	rjmp	.+44     	; 0x36 <__bad_interrupt>
+   a:	15 c0       	rjmp	.+42     	; 0x36 <__bad_interrupt>
+   c:	14 c0       	rjmp	.+40     	; 0x36 <__bad_interrupt>
+   e:	13 c0       	rjmp	.+38     	; 0x36 <__bad_interrupt>
+  10:	12 c0       	rjmp	.+36     	; 0x36 <__bad_interrupt>
+  12:	11 c0       	rjmp	.+34     	; 0x36 <__bad_interrupt>
+  14:	10 c0       	rjmp	.+32     	; 0x36 <__bad_interrupt>
+  16:	0f c0       	rjmp	.+30     	; 0x36 <__bad_interrupt>
+  18:	0e c0       	rjmp	.+28     	; 0x36 <__bad_interrupt>
+  1a:	0d c0       	rjmp	.+26     	; 0x36 <__bad_interrupt>
+  1c:	0c c0       	rjmp	.+24     	; 0x36 <__bad_interrupt>
+  1e:	0b c0       	rjmp	.+22     	; 0x36 <__bad_interrupt>
+  20:	0a c0       	rjmp	.+20     	; 0x36 <__bad_interrupt>
+  22:	09 c0       	rjmp	.+18     	; 0x36 <__bad_interrupt>
+  24:	08 c0       	rjmp	.+16     	; 0x36 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+  32:	02 d0       	rcall	.+4      	; 0x38 <main>
+  34:	16 c0       	rjmp	.+44     	; 0x62 <_exit>
+
+00000036 <__bad_interrupt>:
+  36:	e4 cf       	rjmp	.-56     	; 0x0 <__vectors>
+
+00000038 <main>:
+  38:	87 e0       	ldi	r24, 0x07	; 7
+  3a:	81 bb       	out	0x11, r24	; 17
+  3c:	29 e1       	ldi	r18, 0x19	; 25
+  3e:	30 e0       	ldi	r19, 0x00	; 0
+  40:	82 b3       	in	r24, 0x12	; 18
+  42:	88 e8       	ldi	r24, 0x88	; 136
+  44:	93 e1       	ldi	r25, 0x13	; 19
+  46:	f9 01       	movw	r30, r18
+  48:	31 97       	sbiw	r30, 0x01	; 1
+  4a:	f1 f7       	brne	.-4      	; 0x48 <__SREG__+0x9>
+  4c:	01 97       	sbiw	r24, 0x01	; 1
+  4e:	d9 f7       	brne	.-10     	; 0x46 <__SREG__+0x7>
+  50:	82 b3       	in	r24, 0x12	; 18
+  52:	88 e8       	ldi	r24, 0x88	; 136
+  54:	93 e1       	ldi	r25, 0x13	; 19
+  56:	f9 01       	movw	r30, r18
+  58:	31 97       	sbiw	r30, 0x01	; 1
+  5a:	f1 f7       	brne	.-4      	; 0x58 <__SREG__+0x19>
+  5c:	01 97       	sbiw	r24, 0x01	; 1
+  5e:	d9 f7       	brne	.-10     	; 0x56 <__SREG__+0x17>
+  60:	ef cf       	rjmp	.-34     	; 0x40 <__SREG__+0x1>
+
+00000062 <_exit>:
+  62:	f8 94       	cli
+
+00000064 <__stop_program>:
+  64:	ff cf       	rjmp	.-2      	; 0x64 <__stop_program>
