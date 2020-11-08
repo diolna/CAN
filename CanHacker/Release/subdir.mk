@@ -6,17 +6,23 @@
 CPP_SRCS += \
 ../atmega.cpp \
 ../main.cpp \
-../spi.cpp 
+../mcp2515.cpp \
+../spi.cpp \
+../spi_my.cpp 
 
 OBJS += \
 ./atmega.o \
 ./main.o \
-./spi.o 
+./mcp2515.o \
+./spi.o \
+./spi_my.o 
 
 CPP_DEPS += \
 ./atmega.d \
 ./main.d \
-./spi.d 
+./mcp2515.d \
+./spi.d \
+./spi_my.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

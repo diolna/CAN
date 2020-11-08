@@ -1,0 +1,11 @@
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=false
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=false
+doxygen/doxygen_use_structural_commands=false
+eclipse.preferences.version=1
+environment/project/de.innot.avreclipse.configuration.app.debug.1568593009/PATH/delimiter=;
+environment/project/de.innot.avreclipse.configuration.app.debug.1568593009/PATH/operation=replace
+environment/project/de.innot.avreclipse.configuration.app.debug.1568593009/PATH/value=E\:\\IDEAVR\\WinAVR-20100110\\bin;E\:\\IDEAVR\\avr8-gnu-toolchain\\shellutils;E\:/IDEAVR/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932/jre/bin/server;E\:/IDEAVR/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932/jre/bin;C\:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C\:\\Users\\DIOLNA\\AppData\\Local\\Microsoft\\WindowsApps;D\:\\dev\\mingw64\\mingw64\\bin;E\:\\IDEAVR\\avr8-gnu-toolchain\\bin;;E\:\\IDEAVR\\eclipse
+environment/project/de.innot.avreclipse.configuration.app.debug.1568593009/append=true
+environment/project/de.innot.avreclipse.configuration.app.debug.1568593009/appendContributed=true

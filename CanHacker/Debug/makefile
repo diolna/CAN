@@ -47,6 +47,9 @@ endif
 LSS += \
 CanHacker.lss \
 
+FLASH_IMAGE += \
+CanHacker.hex \
+
 SIZEDUMMY += \
 sizedummy \
 
@@ -68,6 +71,12 @@ CanHacker.lss: CanHacker.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CanHacker.hex: CanHacker.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex CanHacker.elf  "CanHacker.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: CanHacker.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega8 CanHacker.elf
@@ -76,10 +85,10 @@ sizedummy: CanHacker.elf
 
 # Other Targets
 clean:
-	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(LSS)$(C_DEPS)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) CanHacker.elf
+	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(LSS)$(C_DEPS)$(FLASH_IMAGE)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) CanHacker.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 

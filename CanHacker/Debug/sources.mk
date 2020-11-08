@@ -17,6 +17,7 @@ C_UPPER_DEPS :=
 S_DEPS := 
 LSS := 
 C_DEPS := 
+FLASH_IMAGE := 
 CC_DEPS := 
 ELFS := 
 C++_DEPS := 

@@ -1,25 +1,34 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include "spi.h"
 #include "atmega8.h"
+#include <avr/interrupt.h>
+#include "spi.h"
+#include "mcp2515.h"
+
+
 
 
 int main() {
-	DDRD = 0b00000011111;
+	setup_spi(SPI_MODE_0, SPI_LSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK128);
 
-//	SPI spi(0, 1, 0, 0);
-//	spi.begin();
-//
-//	atmega8 atmega_8(spi);
-//	int a= 10;
-//	while(a > 0){
-//
-//	atmega_8.TransferSPI('a');
-//	_delay_ms(500);
-//	a--;
-//	atmega_8.TransferSPI('d');
-//	_delay_ms(500);
-//	}
+	uint8_t data[255];
+	data[0] = 0;
+	for(uint8_t i = 0; i < 255; i++){
+		data[i]= i;
+ 	}
+
+
+	mcp2515_loadMSG(mcp_tx_txb1, data, 255);
+
+
+
+while(1){
+setup_spi(SPI_MODE_0, SPI_LSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK128);
+send_spi(0b0);
+send_spi(0b1);
+
+
+}
 
 
 

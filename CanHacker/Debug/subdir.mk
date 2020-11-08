@@ -6,16 +6,19 @@
 CPP_SRCS += \
 ../atmega.cpp \
 ../main.cpp \
+../mcp2515.cpp \
 ../spi.cpp 
 
 OBJS += \
 ./atmega.o \
 ./main.o \
+./mcp2515.o \
 ./spi.o 
 
 CPP_DEPS += \
 ./atmega.d \
 ./main.d \
+./mcp2515.d \
 ./spi.d 
 
 
@@ -23,7 +26,7 @@ CPP_DEPS += \
 %.o: ../%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	avr-g++ -Wall -g2 -gstabs -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -funsigned-char -funsigned-bitfields -fno-exceptions -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
