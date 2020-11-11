@@ -47,14 +47,11 @@ endif
 LSS += \
 CanHacker.lss \
 
-FLASH_IMAGE += \
-CanHacker.hex \
-
-EEPROM_IMAGE += \
-CanHacker.eep \
-
 SIZEDUMMY += \
 sizedummy \
+
+AVRDUDEDUMMY += \
+avrdudedummy \
 
 
 # All Target
@@ -74,30 +71,24 @@ CanHacker.lss: CanHacker.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
-CanHacker.hex: CanHacker.elf
-	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex CanHacker.elf  "CanHacker.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
-CanHacker.eep: CanHacker.elf
-	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex CanHacker.elf  "CanHacker.eep"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 sizedummy: CanHacker.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega8 CanHacker.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+avrdudedummy: CanHacker.elf
+	@echo 'Invoking: AVRDude'
+	E:\IDEAVR\avr8-gnu-toolchain\avrdude\avrdude -pm8 -cavrisp -Uflash:w:CanHacker.hex:a
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) $(C_UPPER_DEPS)$(S_DEPS)$(LSS)$(C_DEPS)$(FLASH_IMAGE)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) CanHacker.elf
+	-$(RM) $(C_UPPER_DEPS)$(AVRDUDEDUMMY)$(S_DEPS)$(LSS)$(C_DEPS)$(CC_DEPS)$(ELFS)$(C++_DEPS)$(OBJS)$(CXX_DEPS)$(ASM_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(CPP_DEPS) CanHacker.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(SIZEDUMMY) $(AVRDUDEDUMMY)
 
 .PHONY: all clean dependents
 

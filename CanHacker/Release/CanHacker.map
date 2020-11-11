@@ -1,18 +1,18 @@
 Archive member included because of file (symbol)
 
-c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
                               ./serial.o (__udivmodhi4)
-c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                              c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
-c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                              e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
+e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
                               ./main.o (__do_copy_data)
-c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
                               ./serial.o (__do_clear_bss)
 
 Discarded input sections
 
- .data          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
- .bss           0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
  .text          0x00000000        0x0 ./atmega.o
  .data          0x00000000        0x0 ./atmega.o
  .bss           0x00000000        0x0 ./atmega.o
@@ -55,17 +55,17 @@ Discarded input sections
  .bss           0x00000000        0x0 ./serial.o
  .text._Z11serialCloseh
                 0x00000000        0x0 ./serial.o
- .text._Z17serialGetBlockingh
+ .text._Z13serialHasCharh
                 0x00000000        0x0 ./serial.o
- .text._Z18serialRxBufferFullh
+ .text._Z9serialGeth
+                0x00000000        0x0 ./serial.o
+ .text._Z17serialGetBlockingh
                 0x00000000        0x0 ./serial.o
  .text._Z19serialRxBufferEmptyh
                 0x00000000        0x0 ./serial.o
  .text._Z16serialWriteInt16hj
                 0x00000000        0x0 ./serial.o
  .text._Z19serialTxBufferEmptyh
-                0x00000000        0x0 ./serial.o
- .text.__vector_11
                 0x00000000        0x0 ./serial.o
  .text          0x00000000        0x0 ./spi.o
  .data          0x00000000        0x0 ./spi.o
@@ -74,22 +74,22 @@ Discarded input sections
                 0x00000000        0x0 ./spi.o
  .text._Z17received_from_spih
                 0x00000000        0x0 ./spi.o
- .text          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
- .data          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
- .bss           0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
- .text.libgcc   0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
- .text          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .data          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .bss           0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .text.libgcc   0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .text          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .data          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .bss           0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .text          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
- .data          0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
- .bss           0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000000        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .data          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .bss           0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .text          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
 
 Memory Configuration
 
@@ -104,17 +104,17 @@ signature        0x00840000         0x00000400         rw !x
 
 Linker script and memory map
 
-LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 LOAD ./atmega.o
 LOAD ./main.o
 LOAD ./mcp2515.o
 LOAD ./serial.o
 LOAD ./spi.o
-LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
-LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libm.a
-LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
-LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
-LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libm.a
+LOAD e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
+LOAD e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 
 .hash
  *(.hash)
@@ -206,9 +206,9 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x498
+.text           0x00000000      0x47a
  *(.vectors)
- .vectors       0x00000000       0x26 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .vectors       0x00000000       0x26 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vectors
                 0x00000000                __vector_default
  *(.vectors)
@@ -233,20 +233,20 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000026        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init0         0x00000026        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x00000026                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000026        0xc c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init2         0x00000026        0xc e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000032       0x16 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .init4         0x00000032       0x16 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
                 0x00000032                __do_copy_data
- .init4         0x00000048       0x10 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .init4         0x00000048       0x10 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
                 0x00000048                __do_clear_bss
  *(.init4)
  *(.init5)
@@ -258,10 +258,10 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000058        0x4 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init9         0x00000058        0x4 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
  *(.init9)
  *(.text)
- .text          0x0000005c        0x2 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .text          0x0000005c        0x2 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x0000005c                __vector_1
                 0x0000005c                __bad_interrupt
                 0x0000005c                __vector_6
@@ -283,61 +283,58 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.text.*)
  .text.main     0x0000005e       0x54 ./main.o
                 0x0000005e                main
- .text.__vector_11
-                0x000000b2       0x58 ./main.o
-                0x000000b2                __vector_11
  .text.internal_spiChipSelect
-                0x0000010a        0xe ./mcp2515.o
+                0x000000b2        0xe ./mcp2515.o
  .text.mcp2515_bitModify
-                0x00000118       0x2c ./mcp2515.o
-                0x00000118                mcp2515_bitModify
+                0x000000c0       0x2c ./mcp2515.o
+                0x000000c0                mcp2515_bitModify
  .text.mcp2515_writeRegister
-                0x00000144       0x22 ./mcp2515.o
-                0x00000144                mcp2515_writeRegister
+                0x000000ec       0x22 ./mcp2515.o
+                0x000000ec                mcp2515_writeRegister
  .text.mcp2515_readRegister
-                0x00000166       0x20 ./mcp2515.o
-                0x00000166                mcp2515_readRegister
+                0x0000010e       0x20 ./mcp2515.o
+                0x0000010e                mcp2515_readRegister
  .text.mcp2515_setBitTiming
-                0x00000186       0x38 ./mcp2515.o
-                0x00000186                mcp2515_setBitTiming
+                0x0000012e       0x38 ./mcp2515.o
+                0x0000012e                mcp2515_setBitTiming
  .text.mcp2515_setCanSpeed
-                0x000001be       0x34 ./mcp2515.o
-                0x000001be                mcp2515_setCanSpeed
+                0x00000166       0x32 ./mcp2515.o
+                0x00000166                mcp2515_setCanSpeed
  .text._Z15serialAvailablev
-                0x000001f2        0x4 ./serial.o
-                0x000001f2                serialAvailable()
+                0x00000198        0x4 ./serial.o
+                0x00000198                serialAvailable()
  .text._Z10serialInithj
-                0x000001f6       0x3e ./serial.o
-                0x000001f6                serialInit(unsigned char, unsigned int)
- .text._Z13serialHasCharh
-                0x00000234       0x26 ./serial.o
-                0x00000234                serialHasChar(unsigned char)
- .text._Z9serialGeth
-                0x0000025a       0x66 ./serial.o
-                0x0000025a                serialGet(unsigned char)
+                0x0000019c       0x3e ./serial.o
+                0x0000019c                serialInit(unsigned char, unsigned int)
+ .text._Z18serialRxBufferFullh
+                0x000001da       0x44 ./serial.o
+                0x000001da                serialRxBufferFull(unsigned char)
  .text._Z18serialTxBufferFullh
-                0x000002c0       0x44 ./serial.o
-                0x000002c0                serialTxBufferFull(unsigned char)
+                0x0000021e       0x44 ./serial.o
+                0x0000021e                serialTxBufferFull(unsigned char)
  .text._Z11serialWritehh
-                0x00000304       0x5a ./serial.o
-                0x00000304                serialWrite(unsigned char, unsigned char)
+                0x00000262       0x5a ./serial.o
+                0x00000262                serialWrite(unsigned char, unsigned char)
  .text._Z17serialWriteStringhPKc
-                0x0000035e       0x2c ./serial.o
-                0x0000035e                serialWriteString(unsigned char, char const*)
+                0x000002bc       0x2c ./serial.o
+                0x000002bc                serialWriteString(unsigned char, char const*)
+ .text.__vector_11
+                0x000002e8       0x84 ./serial.o
+                0x000002e8                __vector_11
  .text.__vector_12
-                0x0000038a       0x84 ./serial.o
-                0x0000038a                __vector_12
+                0x0000036c       0x84 ./serial.o
+                0x0000036c                __vector_12
  .text._Z9setup_spihiih
-                0x0000040e       0x7c ./spi.o
-                0x0000040e                setup_spi(unsigned char, int, int, unsigned char)
+                0x000003f0       0x7c ./spi.o
+                0x000003f0                setup_spi(unsigned char, int, int, unsigned char)
  .text._Z8send_spih
-                0x0000048a        0xa ./spi.o
-                0x0000048a                send_spi(unsigned char)
-                0x00000494                . = ALIGN (0x2)
+                0x0000046c        0xa ./spi.o
+                0x0000046c                send_spi(unsigned char)
+                0x00000476                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000494        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                0x00000494                exit
-                0x00000494                _exit
+ .fini9         0x00000476        0x0 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x00000476                exit
+                0x00000476                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -356,11 +353,11 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000494        0x4 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .fini0         0x00000476        0x4 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000498                _etext = .
+                0x0000047a                _etext = .
 
-.data           0x00800060       0x1e load address 0x00000498
+.data           0x00800060       0x1e load address 0x0000047a
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060       0x18 ./main.o
@@ -394,8 +391,8 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
                 0x008000b5        0x2 ./serial.o
  *(COMMON)
                 0x008000b7                PROVIDE (__bss_end, .)
-                0x00000498                __data_load_start = LOADADDR (.data)
-                0x000004b6                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000047a                __data_load_start = LOADADDR (.data)
+                0x00000498                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008000b7        0x0
                 0x008000b7                PROVIDE (__noinit_start, .)
@@ -486,51 +483,50 @@ LOAD linker stubs
 Cross Reference Table
 
 Symbol                                            File
-__bad_interrupt                                   c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__bss_end                                         c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-__bss_start                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-__data_end                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-__data_load_start                                 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-__data_start                                      c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-__do_clear_bss                                    c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bad_interrupt                                   e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__bss_end                                         e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bss_start                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__data_end                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_load_start                                 e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_start                                      e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_clear_bss                                    e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
                                                   ./serial.o
-__do_copy_data                                    c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_copy_data                                    e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
                                                   ./serial.o
                                                   ./main.o
-__heap_end                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__init                                            c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__stack                                           c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__udivmodhi4                                      c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+__heap_end                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__init                                            e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__stack                                           e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__udivmodhi4                                      e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
                                                   ./serial.o
-__vector_1                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_10                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_1                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_10                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __vector_11                                       ./serial.o
-                                                  ./main.o
-                                                  c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                                                  e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __vector_12                                       ./serial.o
-                                                  c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_13                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_14                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_15                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_16                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_17                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_18                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_2                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_3                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_4                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_5                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_6                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_7                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_8                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_9                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_default                                  c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vectors                                         c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-_exit                                             c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_13                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_14                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_15                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_16                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_17                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_18                                       e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_2                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_3                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_4                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_5                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_6                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_7                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_8                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_9                                        e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_default                                  e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vectors                                         e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+_exit                                             e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
 disable_spi()                                     ./spi.o
-exit                                              c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                                                  c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+exit                                              e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 main                                              ./main.o
-                                                  c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                                                  e:/ideavr/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 mcp2515_bitModify                                 ./mcp2515.o
 mcp2515_errStatus                                 ./mcp2515.o
 mcp2515_intStatus                                 ./mcp2515.o
@@ -560,10 +556,8 @@ serialAvailable()                                 ./serial.o
                                                   ./main.o
 serialClose(unsigned char)                        ./serial.o
 serialGet(unsigned char)                          ./serial.o
-                                                  ./main.o
 serialGetBlocking(unsigned char)                  ./serial.o
 serialHasChar(unsigned char)                      ./serial.o
-                                                  ./main.o
 serialInit(unsigned char, unsigned int)           ./serial.o
                                                   ./main.o
 serialRxBufferEmpty(unsigned char)                ./serial.o

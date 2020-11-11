@@ -7,28 +7,49 @@
 #include "serial.h"
 
 
-ISR(USART_RXC_vect){
-
-	if(serialHasChar(serialAvailable())){
-		if(serialGet(serialAvailable()) == 'D'){
-			DDRC |= (1<< PC0); // настройка  порта	pc0 на вывод данных
-			PORTC |= (1 << PC0); // вывод лог 1 в порт Pc0
-		}
-
-	}
-}
+//ISR(USART_RXC_vect){
+//
+//	if(serialHasChar(serialAvailable())){
+//		if(serialGet(serialAvailable()) == 'D'){
+//			DDRC |= (1<< PC0); // настройка  порта	pc0 на вывод данных
+//			PORTC |= (1 << PC0); // вывод лог 1 в порт Pc0
+//		}
+//
+//	}
+//}
 
 
 
 int main() {
 	sei();
+	DDRD |= (1 << PD1);
+	DDRD &= ~(1 << PD0);
 
+
+//	UCSRB = (1<<RXEN)|(1<<TXEN);
+//	    UCSRC = (1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0); //8 bit, 1 stop bit
+	UCSRA =  0b0;
+	UCSRB=0b00011000;
+	UCSRC=0b10000110;
 	//инициализация USART
-	serialInit(serialAvailable(), BAUD(38400, F_CPU));
+	serialInit(serialAvailable(), BAUD(9600, F_CPU));
+	DDRC = 0b00000000001;
 
-	 serialWriteString(serialAvailable(), "Hello from UART");
-	 serialWrite(serialAvailable(), serialAvailable() + '0');
-	 serialWriteString(serialAvailable(), "... :)\n");
+		while(1){
+
+
+		PORTC |=(1<<PC0);
+		_delay_ms(500);
+
+
+		PORTC &=~(1<<PD0);
+		_delay_ms(500);
+		serialWrite(serialAvailable(), 'd');
+		serialWriteString(serialAvailable(), "Hello from UART");
+			 serialWrite(serialAvailable(), serialAvailable() + '0');
+			 serialWriteString(serialAvailable(), "... :)\n");
+
+		}
 
 
 	setup_spi(SPI_MODE_0, SPI_LSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK128);
@@ -52,27 +73,16 @@ int main() {
 
 
 
-while(1){
-setup_spi(SPI_MODE_0, SPI_LSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK128);
-send_spi(0b0);
-send_spi(0b1);
+//while(1){
+//setup_spi(SPI_MODE_0, SPI_LSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK128);
+//send_spi(0b0);
+//send_spi(0b1);
+//
+//
+//}
 
 
-}
 
 
-
-
-	while(1){
-
-//	PORTD = 0b00000000111;
-	PORTD |=(1<<PD0);
-	_delay_ms(500);
-
-//	PORTD = 0b000000000000;
-	PORTD &=~(1<<PD0);
-	_delay_ms(500);
-
-	}
 	return 0;
 }
