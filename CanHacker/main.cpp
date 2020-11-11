@@ -4,21 +4,39 @@
 #include <avr/interrupt.h>
 #include "spi.h"
 #include "mcp2515.h"
+#include "serial.h"
 
 
 
 
 int main() {
+
+	//инициализация USART
+	serialInit(serialAvailable(), BAUD(38400, F_CPU));
+	sei();
+	 serialWriteString(serialAvailable(), "Hello from UART");
+	 serialWrite(serialAvailable(), serialAvailable() + '0');
+	 serialWriteString(serialAvailable(), "... :)\n");
+
+
 	setup_spi(SPI_MODE_0, SPI_LSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK128);
+	mcp2515_setCanSpeed(mcp_can_speed_500);
 
-	uint8_t data[255];
-	data[0] = 0;
+	can_packet data[255];
+
 	for(uint8_t i = 0; i < 255; i++){
-		data[i]= i;
- 	}
+		data[i].address = 0x000;
+		for(uint8_t x = 0; x <7; x++){
+		data[i].data[x] = x;
+		}
+		data[i].ide = 0;
+		data[i].len = 4;
+		data[i].rtr =0;
+		data[i].srr = 1;
+	}
 
 
-	mcp2515_loadMSG(mcp_tx_txb1, data, 255);
+//	mcp2515_loadMSG(mcp_tx_txb1, data, 255);
 
 
 

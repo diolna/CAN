@@ -7,18 +7,21 @@ CPP_SRCS += \
 ../atmega.cpp \
 ../main.cpp \
 ../mcp2515.cpp \
+../serial.cpp \
 ../spi.cpp 
 
 OBJS += \
 ./atmega.o \
 ./main.o \
 ./mcp2515.o \
+./serial.o \
 ./spi.o 
 
 CPP_DEPS += \
 ./atmega.d \
 ./main.d \
 ./mcp2515.d \
+./serial.d \
 ./spi.d 
 
 

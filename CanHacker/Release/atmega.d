@@ -1,5 +1,3 @@
-atmega.o atmega.o: ../atmega.cpp ../atmega8.h ../spi_my.h
+atmega.o atmega.o: ../atmega.cpp ../atmega8.h
 
 ../atmega8.h:
-
-../spi_my.h:
