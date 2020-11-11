@@ -3,9 +3,11 @@ CanHacker.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000344  00000000  00000000  00000074  2**1
+  0 .text         00000412  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .bss          00000039  00800060  00800060  000003b8  2**0
+  1 .data         0000001e  00800060  00000412  000004a6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000039  0080007e  0080007e  000004c4  2**0
                   ALLOC
 
 Disassembly of section .text:
@@ -22,8 +24,8 @@ Disassembly of section .text:
   10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
   12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
   14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
-  16:	cd c0       	rjmp	.+410    	; 0x1b2 <__vector_11>
-  18:	0e c1       	rjmp	.+540    	; 0x236 <__vector_12>
+  16:	4d c0       	rjmp	.+154    	; 0xb2 <__vector_11>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
   1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
   1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
   1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
@@ -43,8 +45,8 @@ Disassembly of section .text:
   32:	10 e0       	ldi	r17, 0x00	; 0
   34:	a0 e6       	ldi	r26, 0x60	; 96
   36:	b0 e0       	ldi	r27, 0x00	; 0
-  38:	e4 e4       	ldi	r30, 0x44	; 68
-  3a:	f3 e0       	ldi	r31, 0x03	; 3
+  38:	e2 e1       	ldi	r30, 0x12	; 18
+  3a:	f4 e0       	ldi	r31, 0x04	; 4
   3c:	02 c0       	rjmp	.+4      	; 0x42 <.do_copy_data_start>
 
 0000003e <.do_copy_data_loop>:
@@ -52,13 +54,13 @@ Disassembly of section .text:
   40:	0d 92       	st	X+, r0
 
 00000042 <.do_copy_data_start>:
-  42:	a0 36       	cpi	r26, 0x60	; 96
+  42:	ae 37       	cpi	r26, 0x7E	; 126
   44:	b1 07       	cpc	r27, r17
   46:	d9 f7       	brne	.-10     	; 0x3e <.do_copy_data_loop>
 
 00000048 <__do_clear_bss>:
   48:	10 e0       	ldi	r17, 0x00	; 0
-  4a:	a0 e6       	ldi	r26, 0x60	; 96
+  4a:	ae e7       	ldi	r26, 0x7E	; 126
   4c:	b0 e0       	ldi	r27, 0x00	; 0
   4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
 
@@ -66,377 +68,474 @@ Disassembly of section .text:
   50:	1d 92       	st	X+, r1
 
 00000052 <.do_clear_bss_start>:
-  52:	a9 39       	cpi	r26, 0x99	; 153
+  52:	a7 3b       	cpi	r26, 0xB7	; 183
   54:	b1 07       	cpc	r27, r17
   56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
   58:	02 d0       	rcall	.+4      	; 0x5e <main>
-  5a:	72 c1       	rjmp	.+740    	; 0x340 <_exit>
+  5a:	d9 c1       	rjmp	.+946    	; 0x40e <_exit>
 
 0000005c <__bad_interrupt>:
   5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
 
 0000005e <main>:
-  5e:	80 e0       	ldi	r24, 0x00	; 0
-  60:	61 e0       	ldi	r22, 0x01	; 1
-  62:	70 e0       	ldi	r23, 0x00	; 0
-  64:	40 e0       	ldi	r20, 0x00	; 0
-  66:	50 e0       	ldi	r21, 0x00	; 0
-  68:	23 e0       	ldi	r18, 0x03	; 3
-  6a:	27 d1       	rcall	.+590    	; 0x2ba <_Z9setup_spihiih>
-  6c:	84 e0       	ldi	r24, 0x04	; 4
-  6e:	66 d0       	rcall	.+204    	; 0x13c <mcp2515_setCanSpeed>
-  70:	80 e0       	ldi	r24, 0x00	; 0
-  72:	61 e0       	ldi	r22, 0x01	; 1
-  74:	70 e0       	ldi	r23, 0x00	; 0
-  76:	40 e0       	ldi	r20, 0x00	; 0
-  78:	50 e0       	ldi	r21, 0x00	; 0
-  7a:	23 e0       	ldi	r18, 0x03	; 3
-  7c:	1e d1       	rcall	.+572    	; 0x2ba <_Z9setup_spihiih>
-  7e:	80 e0       	ldi	r24, 0x00	; 0
-  80:	5a d1       	rcall	.+692    	; 0x336 <_Z8send_spih>
-  82:	81 e0       	ldi	r24, 0x01	; 1
-  84:	58 d1       	rcall	.+688    	; 0x336 <_Z8send_spih>
-  86:	f4 cf       	rjmp	.-24     	; 0x70 <main+0x12>
+  5e:	1f 93       	push	r17
+  60:	78 94       	sei
+  62:	c6 d0       	rcall	.+396    	; 0x1f0 <_Z15serialAvailablev>
+  64:	60 e0       	ldi	r22, 0x00	; 0
+  66:	70 e0       	ldi	r23, 0x00	; 0
+  68:	c5 d0       	rcall	.+394    	; 0x1f4 <_Z10serialInithj>
+  6a:	c2 d0       	rcall	.+388    	; 0x1f0 <_Z15serialAvailablev>
+  6c:	60 e6       	ldi	r22, 0x60	; 96
+  6e:	70 e0       	ldi	r23, 0x00	; 0
+  70:	75 d1       	rcall	.+746    	; 0x35c <_Z17serialWriteStringhPKc>
+  72:	be d0       	rcall	.+380    	; 0x1f0 <_Z15serialAvailablev>
+  74:	18 2f       	mov	r17, r24
+  76:	bc d0       	rcall	.+376    	; 0x1f0 <_Z15serialAvailablev>
+  78:	68 2f       	mov	r22, r24
+  7a:	60 5d       	subi	r22, 0xD0	; 208
+  7c:	81 2f       	mov	r24, r17
+  7e:	41 d1       	rcall	.+642    	; 0x302 <_Z11serialWritehh>
+  80:	b7 d0       	rcall	.+366    	; 0x1f0 <_Z15serialAvailablev>
+  82:	60 e7       	ldi	r22, 0x70	; 112
+  84:	70 e0       	ldi	r23, 0x00	; 0
+  86:	6a d1       	rcall	.+724    	; 0x35c <_Z17serialWriteStringhPKc>
+  88:	80 e0       	ldi	r24, 0x00	; 0
+  8a:	61 e0       	ldi	r22, 0x01	; 1
+  8c:	70 e0       	ldi	r23, 0x00	; 0
+  8e:	40 e0       	ldi	r20, 0x00	; 0
+  90:	50 e0       	ldi	r21, 0x00	; 0
+  92:	23 e0       	ldi	r18, 0x03	; 3
+  94:	79 d1       	rcall	.+754    	; 0x388 <_Z9setup_spihiih>
+  96:	84 e0       	ldi	r24, 0x04	; 4
+  98:	92 d0       	rcall	.+292    	; 0x1be <mcp2515_setCanSpeed>
+  9a:	80 e0       	ldi	r24, 0x00	; 0
+  9c:	61 e0       	ldi	r22, 0x01	; 1
+  9e:	70 e0       	ldi	r23, 0x00	; 0
+  a0:	40 e0       	ldi	r20, 0x00	; 0
+  a2:	50 e0       	ldi	r21, 0x00	; 0
+  a4:	23 e0       	ldi	r18, 0x03	; 3
+  a6:	70 d1       	rcall	.+736    	; 0x388 <_Z9setup_spihiih>
+  a8:	80 e0       	ldi	r24, 0x00	; 0
+  aa:	ac d1       	rcall	.+856    	; 0x404 <_Z8send_spih>
+  ac:	81 e0       	ldi	r24, 0x01	; 1
+  ae:	aa d1       	rcall	.+852    	; 0x404 <_Z8send_spih>
+  b0:	f4 cf       	rjmp	.-24     	; 0x9a <main+0x3c>
 
-00000088 <internal_spiChipSelect>:
-  88:	88 23       	and	r24, r24
-  8a:	11 f4       	brne	.+4      	; 0x90 <internal_spiChipSelect+0x8>
-  8c:	c2 9a       	sbi	0x18, 2	; 24
-  8e:	01 c0       	rjmp	.+2      	; 0x92 <internal_spiChipSelect+0xa>
-  90:	c2 98       	cbi	0x18, 2	; 24
-  92:	ba 9a       	sbi	0x17, 2	; 23
-  94:	08 95       	ret
+000000b2 <__vector_11>:
+  b2:	1f 92       	push	r1
+  b4:	0f 92       	push	r0
+  b6:	0f b6       	in	r0, 0x3f	; 63
+  b8:	0f 92       	push	r0
+  ba:	11 24       	eor	r1, r1
+  bc:	2f 93       	push	r18
+  be:	3f 93       	push	r19
+  c0:	4f 93       	push	r20
+  c2:	5f 93       	push	r21
+  c4:	6f 93       	push	r22
+  c6:	7f 93       	push	r23
+  c8:	8f 93       	push	r24
+  ca:	9f 93       	push	r25
+  cc:	af 93       	push	r26
+  ce:	bf 93       	push	r27
+  d0:	ef 93       	push	r30
+  d2:	ff 93       	push	r31
+  d4:	8d d0       	rcall	.+282    	; 0x1f0 <_Z15serialAvailablev>
+  d6:	ad d0       	rcall	.+346    	; 0x232 <_Z13serialHasCharh>
+  d8:	88 23       	and	r24, r24
+  da:	31 f0       	breq	.+12     	; 0xe8 <__vector_11+0x36>
+  dc:	89 d0       	rcall	.+274    	; 0x1f0 <_Z15serialAvailablev>
+  de:	bc d0       	rcall	.+376    	; 0x258 <_Z9serialGeth>
+  e0:	84 34       	cpi	r24, 0x44	; 68
+  e2:	11 f4       	brne	.+4      	; 0xe8 <__vector_11+0x36>
+  e4:	a0 9a       	sbi	0x14, 0	; 20
+  e6:	a8 9a       	sbi	0x15, 0	; 21
+  e8:	ff 91       	pop	r31
+  ea:	ef 91       	pop	r30
+  ec:	bf 91       	pop	r27
+  ee:	af 91       	pop	r26
+  f0:	9f 91       	pop	r25
+  f2:	8f 91       	pop	r24
+  f4:	7f 91       	pop	r23
+  f6:	6f 91       	pop	r22
+  f8:	5f 91       	pop	r21
+  fa:	4f 91       	pop	r20
+  fc:	3f 91       	pop	r19
+  fe:	2f 91       	pop	r18
+ 100:	0f 90       	pop	r0
+ 102:	0f be       	out	0x3f, r0	; 63
+ 104:	0f 90       	pop	r0
+ 106:	1f 90       	pop	r1
+ 108:	18 95       	reti
 
-00000096 <mcp2515_bitModify>:
-  96:	ff 92       	push	r15
-  98:	0f 93       	push	r16
-  9a:	1f 93       	push	r17
-  9c:	18 2f       	mov	r17, r24
-  9e:	f6 2e       	mov	r15, r22
-  a0:	04 2f       	mov	r16, r20
-  a2:	81 e0       	ldi	r24, 0x01	; 1
-  a4:	f1 df       	rcall	.-30     	; 0x88 <internal_spiChipSelect>
-  a6:	85 e0       	ldi	r24, 0x05	; 5
-  a8:	46 d1       	rcall	.+652    	; 0x336 <_Z8send_spih>
-  aa:	81 2f       	mov	r24, r17
-  ac:	44 d1       	rcall	.+648    	; 0x336 <_Z8send_spih>
-  ae:	80 2f       	mov	r24, r16
-  b0:	42 d1       	rcall	.+644    	; 0x336 <_Z8send_spih>
-  b2:	8f 2d       	mov	r24, r15
-  b4:	40 d1       	rcall	.+640    	; 0x336 <_Z8send_spih>
-  b6:	80 e0       	ldi	r24, 0x00	; 0
-  b8:	e7 df       	rcall	.-50     	; 0x88 <internal_spiChipSelect>
-  ba:	1f 91       	pop	r17
-  bc:	0f 91       	pop	r16
-  be:	ff 90       	pop	r15
-  c0:	08 95       	ret
+0000010a <internal_spiChipSelect>:
+ 10a:	88 23       	and	r24, r24
+ 10c:	11 f4       	brne	.+4      	; 0x112 <internal_spiChipSelect+0x8>
+ 10e:	c2 9a       	sbi	0x18, 2	; 24
+ 110:	01 c0       	rjmp	.+2      	; 0x114 <internal_spiChipSelect+0xa>
+ 112:	c2 98       	cbi	0x18, 2	; 24
+ 114:	ba 9a       	sbi	0x17, 2	; 23
+ 116:	08 95       	ret
 
-000000c2 <mcp2515_writeRegister>:
-  c2:	0f 93       	push	r16
-  c4:	1f 93       	push	r17
-  c6:	18 2f       	mov	r17, r24
-  c8:	06 2f       	mov	r16, r22
-  ca:	81 e0       	ldi	r24, 0x01	; 1
-  cc:	dd df       	rcall	.-70     	; 0x88 <internal_spiChipSelect>
-  ce:	82 e0       	ldi	r24, 0x02	; 2
-  d0:	32 d1       	rcall	.+612    	; 0x336 <_Z8send_spih>
-  d2:	81 2f       	mov	r24, r17
-  d4:	30 d1       	rcall	.+608    	; 0x336 <_Z8send_spih>
-  d6:	80 2f       	mov	r24, r16
-  d8:	2e d1       	rcall	.+604    	; 0x336 <_Z8send_spih>
-  da:	80 e0       	ldi	r24, 0x00	; 0
-  dc:	d5 df       	rcall	.-86     	; 0x88 <internal_spiChipSelect>
-  de:	1f 91       	pop	r17
-  e0:	0f 91       	pop	r16
-  e2:	08 95       	ret
+00000118 <mcp2515_bitModify>:
+ 118:	ff 92       	push	r15
+ 11a:	0f 93       	push	r16
+ 11c:	1f 93       	push	r17
+ 11e:	18 2f       	mov	r17, r24
+ 120:	f6 2e       	mov	r15, r22
+ 122:	04 2f       	mov	r16, r20
+ 124:	81 e0       	ldi	r24, 0x01	; 1
+ 126:	f1 df       	rcall	.-30     	; 0x10a <internal_spiChipSelect>
+ 128:	85 e0       	ldi	r24, 0x05	; 5
+ 12a:	6c d1       	rcall	.+728    	; 0x404 <_Z8send_spih>
+ 12c:	81 2f       	mov	r24, r17
+ 12e:	6a d1       	rcall	.+724    	; 0x404 <_Z8send_spih>
+ 130:	80 2f       	mov	r24, r16
+ 132:	68 d1       	rcall	.+720    	; 0x404 <_Z8send_spih>
+ 134:	8f 2d       	mov	r24, r15
+ 136:	66 d1       	rcall	.+716    	; 0x404 <_Z8send_spih>
+ 138:	80 e0       	ldi	r24, 0x00	; 0
+ 13a:	e7 df       	rcall	.-50     	; 0x10a <internal_spiChipSelect>
+ 13c:	1f 91       	pop	r17
+ 13e:	0f 91       	pop	r16
+ 140:	ff 90       	pop	r15
+ 142:	08 95       	ret
 
-000000e4 <mcp2515_readRegister>:
-  e4:	1f 93       	push	r17
-  e6:	18 2f       	mov	r17, r24
-  e8:	81 e0       	ldi	r24, 0x01	; 1
-  ea:	ce df       	rcall	.-100    	; 0x88 <internal_spiChipSelect>
-  ec:	83 e0       	ldi	r24, 0x03	; 3
-  ee:	23 d1       	rcall	.+582    	; 0x336 <_Z8send_spih>
-  f0:	81 2f       	mov	r24, r17
-  f2:	21 d1       	rcall	.+578    	; 0x336 <_Z8send_spih>
-  f4:	80 e0       	ldi	r24, 0x00	; 0
-  f6:	1f d1       	rcall	.+574    	; 0x336 <_Z8send_spih>
-  f8:	18 2f       	mov	r17, r24
-  fa:	80 e0       	ldi	r24, 0x00	; 0
-  fc:	c5 df       	rcall	.-118    	; 0x88 <internal_spiChipSelect>
-  fe:	81 2f       	mov	r24, r17
- 100:	1f 91       	pop	r17
- 102:	08 95       	ret
+00000144 <mcp2515_writeRegister>:
+ 144:	0f 93       	push	r16
+ 146:	1f 93       	push	r17
+ 148:	18 2f       	mov	r17, r24
+ 14a:	06 2f       	mov	r16, r22
+ 14c:	81 e0       	ldi	r24, 0x01	; 1
+ 14e:	dd df       	rcall	.-70     	; 0x10a <internal_spiChipSelect>
+ 150:	82 e0       	ldi	r24, 0x02	; 2
+ 152:	58 d1       	rcall	.+688    	; 0x404 <_Z8send_spih>
+ 154:	81 2f       	mov	r24, r17
+ 156:	56 d1       	rcall	.+684    	; 0x404 <_Z8send_spih>
+ 158:	80 2f       	mov	r24, r16
+ 15a:	54 d1       	rcall	.+680    	; 0x404 <_Z8send_spih>
+ 15c:	80 e0       	ldi	r24, 0x00	; 0
+ 15e:	d5 df       	rcall	.-86     	; 0x10a <internal_spiChipSelect>
+ 160:	1f 91       	pop	r17
+ 162:	0f 91       	pop	r16
+ 164:	08 95       	ret
 
-00000104 <mcp2515_setBitTiming>:
- 104:	ff 92       	push	r15
- 106:	0f 93       	push	r16
- 108:	1f 93       	push	r17
- 10a:	18 2f       	mov	r17, r24
- 10c:	06 2f       	mov	r16, r22
- 10e:	f4 2e       	mov	r15, r20
- 110:	8e e0       	ldi	r24, 0x0E	; 14
- 112:	e8 df       	rcall	.-48     	; 0xe4 <mcp2515_readRegister>
- 114:	80 7e       	andi	r24, 0xE0	; 224
- 116:	80 38       	cpi	r24, 0x80	; 128
- 118:	11 f0       	breq	.+4      	; 0x11e <mcp2515_setBitTiming+0x1a>
- 11a:	80 e0       	ldi	r24, 0x00	; 0
- 11c:	0b c0       	rjmp	.+22     	; 0x134 <mcp2515_setBitTiming+0x30>
- 11e:	8a e2       	ldi	r24, 0x2A	; 42
- 120:	61 2f       	mov	r22, r17
- 122:	cf df       	rcall	.-98     	; 0xc2 <mcp2515_writeRegister>
- 124:	89 e2       	ldi	r24, 0x29	; 41
- 126:	60 2f       	mov	r22, r16
- 128:	cc df       	rcall	.-104    	; 0xc2 <mcp2515_writeRegister>
- 12a:	88 e2       	ldi	r24, 0x28	; 40
- 12c:	6f 2d       	mov	r22, r15
- 12e:	47 e0       	ldi	r20, 0x07	; 7
- 130:	b2 df       	rcall	.-156    	; 0x96 <mcp2515_bitModify>
- 132:	81 e0       	ldi	r24, 0x01	; 1
- 134:	1f 91       	pop	r17
- 136:	0f 91       	pop	r16
- 138:	ff 90       	pop	r15
- 13a:	08 95       	ret
+00000166 <mcp2515_readRegister>:
+ 166:	1f 93       	push	r17
+ 168:	18 2f       	mov	r17, r24
+ 16a:	81 e0       	ldi	r24, 0x01	; 1
+ 16c:	ce df       	rcall	.-100    	; 0x10a <internal_spiChipSelect>
+ 16e:	83 e0       	ldi	r24, 0x03	; 3
+ 170:	49 d1       	rcall	.+658    	; 0x404 <_Z8send_spih>
+ 172:	81 2f       	mov	r24, r17
+ 174:	47 d1       	rcall	.+654    	; 0x404 <_Z8send_spih>
+ 176:	80 e0       	ldi	r24, 0x00	; 0
+ 178:	45 d1       	rcall	.+650    	; 0x404 <_Z8send_spih>
+ 17a:	18 2f       	mov	r17, r24
+ 17c:	80 e0       	ldi	r24, 0x00	; 0
+ 17e:	c5 df       	rcall	.-118    	; 0x10a <internal_spiChipSelect>
+ 180:	81 2f       	mov	r24, r17
+ 182:	1f 91       	pop	r17
+ 184:	08 95       	ret
 
-0000013c <mcp2515_setCanSpeed>:
- 13c:	82 30       	cpi	r24, 0x02	; 2
- 13e:	79 f0       	breq	.+30     	; 0x15e <mcp2515_setCanSpeed+0x22>
- 140:	83 30       	cpi	r24, 0x03	; 3
- 142:	18 f4       	brcc	.+6      	; 0x14a <mcp2515_setCanSpeed+0xe>
- 144:	81 30       	cpi	r24, 0x01	; 1
- 146:	79 f4       	brne	.+30     	; 0x166 <mcp2515_setCanSpeed+0x2a>
- 148:	0c c0       	rjmp	.+24     	; 0x162 <mcp2515_setCanSpeed+0x26>
- 14a:	83 30       	cpi	r24, 0x03	; 3
- 14c:	19 f0       	breq	.+6      	; 0x154 <mcp2515_setCanSpeed+0x18>
- 14e:	84 30       	cpi	r24, 0x04	; 4
- 150:	51 f4       	brne	.+20     	; 0x166 <mcp2515_setCanSpeed+0x2a>
- 152:	02 c0       	rjmp	.+4      	; 0x158 <mcp2515_setCanSpeed+0x1c>
- 154:	81 e0       	ldi	r24, 0x01	; 1
- 156:	01 c0       	rjmp	.+2      	; 0x15a <mcp2515_setCanSpeed+0x1e>
- 158:	80 e0       	ldi	r24, 0x00	; 0
- 15a:	6a eb       	ldi	r22, 0xBA	; 186
- 15c:	06 c0       	rjmp	.+12     	; 0x16a <mcp2515_setCanSpeed+0x2e>
- 15e:	83 e0       	ldi	r24, 0x03	; 3
- 160:	fc cf       	rjmp	.-8      	; 0x15a <mcp2515_setCanSpeed+0x1e>
- 162:	87 e0       	ldi	r24, 0x07	; 7
- 164:	01 c0       	rjmp	.+2      	; 0x168 <mcp2515_setCanSpeed+0x2c>
- 166:	8f e0       	ldi	r24, 0x0F	; 15
- 168:	6f eb       	ldi	r22, 0xBF	; 191
- 16a:	47 e0       	ldi	r20, 0x07	; 7
- 16c:	cb cf       	rjmp	.-106    	; 0x104 <mcp2515_setBitTiming>
+00000186 <mcp2515_setBitTiming>:
+ 186:	ff 92       	push	r15
+ 188:	0f 93       	push	r16
+ 18a:	1f 93       	push	r17
+ 18c:	18 2f       	mov	r17, r24
+ 18e:	06 2f       	mov	r16, r22
+ 190:	f4 2e       	mov	r15, r20
+ 192:	8e e0       	ldi	r24, 0x0E	; 14
+ 194:	e8 df       	rcall	.-48     	; 0x166 <mcp2515_readRegister>
+ 196:	80 7e       	andi	r24, 0xE0	; 224
+ 198:	80 38       	cpi	r24, 0x80	; 128
+ 19a:	11 f0       	breq	.+4      	; 0x1a0 <mcp2515_setBitTiming+0x1a>
+ 19c:	80 e0       	ldi	r24, 0x00	; 0
+ 19e:	0b c0       	rjmp	.+22     	; 0x1b6 <mcp2515_setBitTiming+0x30>
+ 1a0:	8a e2       	ldi	r24, 0x2A	; 42
+ 1a2:	61 2f       	mov	r22, r17
+ 1a4:	cf df       	rcall	.-98     	; 0x144 <mcp2515_writeRegister>
+ 1a6:	89 e2       	ldi	r24, 0x29	; 41
+ 1a8:	60 2f       	mov	r22, r16
+ 1aa:	cc df       	rcall	.-104    	; 0x144 <mcp2515_writeRegister>
+ 1ac:	88 e2       	ldi	r24, 0x28	; 40
+ 1ae:	6f 2d       	mov	r22, r15
+ 1b0:	47 e0       	ldi	r20, 0x07	; 7
+ 1b2:	b2 df       	rcall	.-156    	; 0x118 <mcp2515_bitModify>
+ 1b4:	81 e0       	ldi	r24, 0x01	; 1
+ 1b6:	1f 91       	pop	r17
+ 1b8:	0f 91       	pop	r16
+ 1ba:	ff 90       	pop	r15
+ 1bc:	08 95       	ret
 
-0000016e <_Z18serialRxBufferFullh>:
- 16e:	88 23       	and	r24, r24
- 170:	11 f0       	breq	.+4      	; 0x176 <_Z18serialRxBufferFullh+0x8>
- 172:	80 e0       	ldi	r24, 0x00	; 0
- 174:	08 95       	ret
- 176:	80 91 75 00 	lds	r24, 0x0075
- 17a:	90 91 76 00 	lds	r25, 0x0076
- 17e:	20 91 97 00 	lds	r18, 0x0097
- 182:	30 91 98 00 	lds	r19, 0x0098
- 186:	01 96       	adiw	r24, 0x01	; 1
- 188:	82 17       	cp	r24, r18
- 18a:	93 07       	cpc	r25, r19
- 18c:	79 f0       	breq	.+30     	; 0x1ac <_Z18serialRxBufferFullh+0x3e>
- 18e:	80 91 97 00 	lds	r24, 0x0097
- 192:	90 91 98 00 	lds	r25, 0x0098
- 196:	89 2b       	or	r24, r25
- 198:	11 f0       	breq	.+4      	; 0x19e <_Z18serialRxBufferFullh+0x30>
- 19a:	20 e0       	ldi	r18, 0x00	; 0
- 19c:	08 c0       	rjmp	.+16     	; 0x1ae <_Z18serialRxBufferFullh+0x40>
- 19e:	80 91 75 00 	lds	r24, 0x0075
- 1a2:	90 91 76 00 	lds	r25, 0x0076
- 1a6:	20 e0       	ldi	r18, 0x00	; 0
- 1a8:	4f 97       	sbiw	r24, 0x1f	; 31
- 1aa:	09 f4       	brne	.+2      	; 0x1ae <_Z18serialRxBufferFullh+0x40>
- 1ac:	21 e0       	ldi	r18, 0x01	; 1
- 1ae:	82 2f       	mov	r24, r18
- 1b0:	08 95       	ret
+000001be <mcp2515_setCanSpeed>:
+ 1be:	82 30       	cpi	r24, 0x02	; 2
+ 1c0:	79 f0       	breq	.+30     	; 0x1e0 <mcp2515_setCanSpeed+0x22>
+ 1c2:	83 30       	cpi	r24, 0x03	; 3
+ 1c4:	18 f4       	brcc	.+6      	; 0x1cc <mcp2515_setCanSpeed+0xe>
+ 1c6:	81 30       	cpi	r24, 0x01	; 1
+ 1c8:	79 f4       	brne	.+30     	; 0x1e8 <mcp2515_setCanSpeed+0x2a>
+ 1ca:	0c c0       	rjmp	.+24     	; 0x1e4 <mcp2515_setCanSpeed+0x26>
+ 1cc:	83 30       	cpi	r24, 0x03	; 3
+ 1ce:	19 f0       	breq	.+6      	; 0x1d6 <mcp2515_setCanSpeed+0x18>
+ 1d0:	84 30       	cpi	r24, 0x04	; 4
+ 1d2:	51 f4       	brne	.+20     	; 0x1e8 <mcp2515_setCanSpeed+0x2a>
+ 1d4:	02 c0       	rjmp	.+4      	; 0x1da <mcp2515_setCanSpeed+0x1c>
+ 1d6:	81 e0       	ldi	r24, 0x01	; 1
+ 1d8:	01 c0       	rjmp	.+2      	; 0x1dc <mcp2515_setCanSpeed+0x1e>
+ 1da:	80 e0       	ldi	r24, 0x00	; 0
+ 1dc:	6a eb       	ldi	r22, 0xBA	; 186
+ 1de:	06 c0       	rjmp	.+12     	; 0x1ec <mcp2515_setCanSpeed+0x2e>
+ 1e0:	83 e0       	ldi	r24, 0x03	; 3
+ 1e2:	fc cf       	rjmp	.-8      	; 0x1dc <mcp2515_setCanSpeed+0x1e>
+ 1e4:	87 e0       	ldi	r24, 0x07	; 7
+ 1e6:	01 c0       	rjmp	.+2      	; 0x1ea <mcp2515_setCanSpeed+0x2c>
+ 1e8:	8f e0       	ldi	r24, 0x0F	; 15
+ 1ea:	6f eb       	ldi	r22, 0xBF	; 191
+ 1ec:	47 e0       	ldi	r20, 0x07	; 7
+ 1ee:	cb cf       	rjmp	.-106    	; 0x186 <mcp2515_setBitTiming>
 
-000001b2 <__vector_11>:
- 1b2:	1f 92       	push	r1
- 1b4:	0f 92       	push	r0
- 1b6:	0f b6       	in	r0, 0x3f	; 63
- 1b8:	0f 92       	push	r0
- 1ba:	11 24       	eor	r1, r1
- 1bc:	2f 93       	push	r18
- 1be:	3f 93       	push	r19
- 1c0:	4f 93       	push	r20
- 1c2:	5f 93       	push	r21
- 1c4:	6f 93       	push	r22
- 1c6:	7f 93       	push	r23
- 1c8:	8f 93       	push	r24
- 1ca:	9f 93       	push	r25
- 1cc:	af 93       	push	r26
- 1ce:	bf 93       	push	r27
- 1d0:	ef 93       	push	r30
- 1d2:	ff 93       	push	r31
- 1d4:	e0 91 75 00 	lds	r30, 0x0075
- 1d8:	f0 91 76 00 	lds	r31, 0x0076
- 1dc:	8c b1       	in	r24, 0x0c	; 12
- 1de:	e9 58       	subi	r30, 0x89	; 137
- 1e0:	ff 4f       	sbci	r31, 0xFF	; 255
- 1e2:	80 83       	st	Z, r24
- 1e4:	80 e0       	ldi	r24, 0x00	; 0
- 1e6:	c3 df       	rcall	.-122    	; 0x16e <_Z18serialRxBufferFullh>
- 1e8:	88 23       	and	r24, r24
- 1ea:	a1 f4       	brne	.+40     	; 0x214 <__vector_11+0x62>
- 1ec:	80 91 75 00 	lds	r24, 0x0075
- 1f0:	90 91 76 00 	lds	r25, 0x0076
- 1f4:	4f 97       	sbiw	r24, 0x1f	; 31
- 1f6:	50 f4       	brcc	.+20     	; 0x20c <__vector_11+0x5a>
- 1f8:	80 91 75 00 	lds	r24, 0x0075
- 1fc:	90 91 76 00 	lds	r25, 0x0076
- 200:	01 96       	adiw	r24, 0x01	; 1
- 202:	90 93 76 00 	sts	0x0076, r25
- 206:	80 93 75 00 	sts	0x0075, r24
- 20a:	04 c0       	rjmp	.+8      	; 0x214 <__vector_11+0x62>
- 20c:	10 92 76 00 	sts	0x0076, r1
- 210:	10 92 75 00 	sts	0x0075, r1
- 214:	ff 91       	pop	r31
- 216:	ef 91       	pop	r30
- 218:	bf 91       	pop	r27
- 21a:	af 91       	pop	r26
- 21c:	9f 91       	pop	r25
- 21e:	8f 91       	pop	r24
- 220:	7f 91       	pop	r23
- 222:	6f 91       	pop	r22
- 224:	5f 91       	pop	r21
- 226:	4f 91       	pop	r20
- 228:	3f 91       	pop	r19
- 22a:	2f 91       	pop	r18
- 22c:	0f 90       	pop	r0
- 22e:	0f be       	out	0x3f, r0	; 63
- 230:	0f 90       	pop	r0
- 232:	1f 90       	pop	r1
- 234:	18 95       	reti
+000001f0 <_Z15serialAvailablev>:
+ 1f0:	81 e0       	ldi	r24, 0x01	; 1
+ 1f2:	08 95       	ret
 
-00000236 <__vector_12>:
- 236:	1f 92       	push	r1
- 238:	0f 92       	push	r0
- 23a:	0f b6       	in	r0, 0x3f	; 63
- 23c:	0f 92       	push	r0
- 23e:	11 24       	eor	r1, r1
- 240:	2f 93       	push	r18
- 242:	3f 93       	push	r19
- 244:	8f 93       	push	r24
- 246:	9f 93       	push	r25
- 248:	ef 93       	push	r30
- 24a:	ff 93       	push	r31
- 24c:	20 91 60 00 	lds	r18, 0x0060
- 250:	30 91 61 00 	lds	r19, 0x0061
- 254:	80 91 62 00 	lds	r24, 0x0062
- 258:	90 91 63 00 	lds	r25, 0x0063
- 25c:	28 17       	cp	r18, r24
- 25e:	39 07       	cpc	r19, r25
- 260:	e9 f0       	breq	.+58     	; 0x29c <__vector_12+0x66>
- 262:	e0 91 60 00 	lds	r30, 0x0060
- 266:	f0 91 61 00 	lds	r31, 0x0061
- 26a:	ec 59       	subi	r30, 0x9C	; 156
- 26c:	ff 4f       	sbci	r31, 0xFF	; 255
- 26e:	80 81       	ld	r24, Z
- 270:	8c b9       	out	0x0c, r24	; 12
- 272:	80 91 60 00 	lds	r24, 0x0060
- 276:	90 91 61 00 	lds	r25, 0x0061
- 27a:	0f 97       	sbiw	r24, 0x0f	; 15
- 27c:	50 f4       	brcc	.+20     	; 0x292 <__vector_12+0x5c>
- 27e:	80 91 60 00 	lds	r24, 0x0060
- 282:	90 91 61 00 	lds	r25, 0x0061
- 286:	01 96       	adiw	r24, 0x01	; 1
- 288:	90 93 61 00 	sts	0x0061, r25
- 28c:	80 93 60 00 	sts	0x0060, r24
- 290:	09 c0       	rjmp	.+18     	; 0x2a4 <__vector_12+0x6e>
- 292:	10 92 61 00 	sts	0x0061, r1
- 296:	10 92 60 00 	sts	0x0060, r1
- 29a:	04 c0       	rjmp	.+8      	; 0x2a4 <__vector_12+0x6e>
- 29c:	81 e0       	ldi	r24, 0x01	; 1
- 29e:	80 93 74 00 	sts	0x0074, r24
- 2a2:	55 98       	cbi	0x0a, 5	; 10
- 2a4:	ff 91       	pop	r31
- 2a6:	ef 91       	pop	r30
- 2a8:	9f 91       	pop	r25
- 2aa:	8f 91       	pop	r24
- 2ac:	3f 91       	pop	r19
- 2ae:	2f 91       	pop	r18
- 2b0:	0f 90       	pop	r0
- 2b2:	0f be       	out	0x3f, r0	; 63
- 2b4:	0f 90       	pop	r0
- 2b6:	1f 90       	pop	r1
- 2b8:	18 95       	reti
+000001f4 <_Z10serialInithj>:
+ 1f4:	88 23       	and	r24, r24
+ 1f6:	e1 f4       	brne	.+56     	; 0x230 <_Z10serialInithj+0x3c>
+ 1f8:	10 92 94 00 	sts	0x0094, r1
+ 1fc:	10 92 93 00 	sts	0x0093, r1
+ 200:	10 92 96 00 	sts	0x0096, r1
+ 204:	10 92 95 00 	sts	0x0095, r1
+ 208:	10 92 7f 00 	sts	0x007F, r1
+ 20c:	10 92 7e 00 	sts	0x007E, r1
+ 210:	10 92 81 00 	sts	0x0081, r1
+ 214:	10 92 80 00 	sts	0x0080, r1
+ 218:	81 e0       	ldi	r24, 0x01	; 1
+ 21a:	80 93 92 00 	sts	0x0092, r24
+ 21e:	86 e0       	ldi	r24, 0x06	; 6
+ 220:	80 bd       	out	0x20, r24	; 32
+ 222:	70 bd       	out	0x20, r23	; 32
+ 224:	69 b9       	out	0x09, r22	; 9
+ 226:	80 e8       	ldi	r24, 0x80	; 128
+ 228:	8a b9       	out	0x0a, r24	; 10
+ 22a:	8a b1       	in	r24, 0x0a	; 10
+ 22c:	88 61       	ori	r24, 0x18	; 24
+ 22e:	8a b9       	out	0x0a, r24	; 10
+ 230:	08 95       	ret
 
-000002ba <_Z9setup_spihiih>:
- 2ba:	fb 01       	movw	r30, r22
- 2bc:	20 3f       	cpi	r18, 0xF0	; 240
- 2be:	29 f4       	brne	.+10     	; 0x2ca <_Z9setup_spihiih+0x10>
- 2c0:	bb 98       	cbi	0x17, 3	; 23
- 2c2:	bc 9a       	sbi	0x17, 4	; 23
- 2c4:	ba 98       	cbi	0x17, 2	; 23
- 2c6:	bd 98       	cbi	0x17, 5	; 23
- 2c8:	05 c0       	rjmp	.+10     	; 0x2d4 <_Z9setup_spihiih+0x1a>
- 2ca:	bb 9a       	sbi	0x17, 3	; 23
- 2cc:	bc 98       	cbi	0x17, 4	; 23
- 2ce:	bd 9a       	sbi	0x17, 5	; 23
- 2d0:	ba 9a       	sbi	0x17, 2	; 23
- 2d2:	c2 9a       	sbi	0x18, 2	; 24
- 2d4:	45 2b       	or	r20, r21
- 2d6:	11 f4       	brne	.+4      	; 0x2dc <_Z9setup_spihiih+0x22>
- 2d8:	50 e4       	ldi	r21, 0x40	; 64
- 2da:	01 c0       	rjmp	.+2      	; 0x2de <_Z9setup_spihiih+0x24>
- 2dc:	50 ec       	ldi	r21, 0xC0	; 192
- 2de:	20 3f       	cpi	r18, 0xF0	; 240
- 2e0:	11 f4       	brne	.+4      	; 0x2e6 <_Z9setup_spihiih+0x2c>
- 2e2:	40 e0       	ldi	r20, 0x00	; 0
- 2e4:	01 c0       	rjmp	.+2      	; 0x2e8 <_Z9setup_spihiih+0x2e>
- 2e6:	40 e1       	ldi	r20, 0x10	; 16
- 2e8:	68 2f       	mov	r22, r24
- 2ea:	70 e0       	ldi	r23, 0x00	; 0
- 2ec:	81 fd       	sbrc	r24, 1
- 2ee:	02 c0       	rjmp	.+4      	; 0x2f4 <_Z9setup_spihiih+0x3a>
- 2f0:	30 e0       	ldi	r19, 0x00	; 0
- 2f2:	01 c0       	rjmp	.+2      	; 0x2f6 <_Z9setup_spihiih+0x3c>
- 2f4:	38 e0       	ldi	r19, 0x08	; 8
- 2f6:	61 70       	andi	r22, 0x01	; 1
- 2f8:	70 70       	andi	r23, 0x00	; 0
- 2fa:	66 0f       	add	r22, r22
- 2fc:	77 1f       	adc	r23, r23
- 2fe:	66 0f       	add	r22, r22
- 300:	77 1f       	adc	r23, r23
- 302:	75 e0       	ldi	r23, 0x05	; 5
- 304:	ee 0f       	add	r30, r30
- 306:	ff 1f       	adc	r31, r31
- 308:	7a 95       	dec	r23
- 30a:	e1 f7       	brne	.-8      	; 0x304 <_Z9setup_spihiih+0x4a>
- 30c:	86 2f       	mov	r24, r22
- 30e:	8e 2b       	or	r24, r30
- 310:	92 2f       	mov	r25, r18
- 312:	92 70       	andi	r25, 0x02	; 2
- 314:	89 2b       	or	r24, r25
- 316:	92 2f       	mov	r25, r18
- 318:	91 70       	andi	r25, 0x01	; 1
- 31a:	89 2b       	or	r24, r25
- 31c:	85 2b       	or	r24, r21
- 31e:	84 2b       	or	r24, r20
- 320:	83 2b       	or	r24, r19
- 322:	8d b9       	out	0x0d, r24	; 13
- 324:	82 2f       	mov	r24, r18
- 326:	90 e0       	ldi	r25, 0x00	; 0
- 328:	96 95       	lsr	r25
- 32a:	87 95       	ror	r24
- 32c:	96 95       	lsr	r25
- 32e:	87 95       	ror	r24
- 330:	81 70       	andi	r24, 0x01	; 1
- 332:	8e b9       	out	0x0e, r24	; 14
- 334:	08 95       	ret
+00000232 <_Z13serialHasCharh>:
+ 232:	88 23       	and	r24, r24
+ 234:	11 f0       	breq	.+4      	; 0x23a <_Z13serialHasCharh+0x8>
+ 236:	40 e0       	ldi	r20, 0x00	; 0
+ 238:	0d c0       	rjmp	.+26     	; 0x254 <_Z13serialHasCharh+0x22>
+ 23a:	20 91 93 00 	lds	r18, 0x0093
+ 23e:	30 91 94 00 	lds	r19, 0x0094
+ 242:	80 91 95 00 	lds	r24, 0x0095
+ 246:	90 91 96 00 	lds	r25, 0x0096
+ 24a:	40 e0       	ldi	r20, 0x00	; 0
+ 24c:	28 17       	cp	r18, r24
+ 24e:	39 07       	cpc	r19, r25
+ 250:	09 f0       	breq	.+2      	; 0x254 <_Z13serialHasCharh+0x22>
+ 252:	41 e0       	ldi	r20, 0x01	; 1
+ 254:	84 2f       	mov	r24, r20
+ 256:	08 95       	ret
 
-00000336 <_Z8send_spih>:
- 336:	8f b9       	out	0x0f, r24	; 15
- 338:	77 9b       	sbis	0x0e, 7	; 14
- 33a:	fe cf       	rjmp	.-4      	; 0x338 <_Z8send_spih+0x2>
- 33c:	8f b1       	in	r24, 0x0f	; 15
- 33e:	08 95       	ret
+00000258 <_Z9serialGeth>:
+ 258:	88 23       	and	r24, r24
+ 25a:	71 f5       	brne	.+92     	; 0x2b8 <_Z9serialGeth+0x60>
+ 25c:	20 91 93 00 	lds	r18, 0x0093
+ 260:	30 91 94 00 	lds	r19, 0x0094
+ 264:	80 91 95 00 	lds	r24, 0x0095
+ 268:	90 91 96 00 	lds	r25, 0x0096
+ 26c:	28 17       	cp	r18, r24
+ 26e:	39 07       	cpc	r19, r25
+ 270:	19 f1       	breq	.+70     	; 0x2b8 <_Z9serialGeth+0x60>
+ 272:	e0 91 93 00 	lds	r30, 0x0093
+ 276:	f0 91 94 00 	lds	r31, 0x0094
+ 27a:	e9 56       	subi	r30, 0x69	; 105
+ 27c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 27e:	20 81       	ld	r18, Z
+ 280:	e0 91 93 00 	lds	r30, 0x0093
+ 284:	f0 91 94 00 	lds	r31, 0x0094
+ 288:	e9 56       	subi	r30, 0x69	; 105
+ 28a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 28c:	10 82       	st	Z, r1
+ 28e:	80 91 93 00 	lds	r24, 0x0093
+ 292:	90 91 94 00 	lds	r25, 0x0094
+ 296:	4f 97       	sbiw	r24, 0x1f	; 31
+ 298:	50 f4       	brcc	.+20     	; 0x2ae <_Z9serialGeth+0x56>
+ 29a:	80 91 93 00 	lds	r24, 0x0093
+ 29e:	90 91 94 00 	lds	r25, 0x0094
+ 2a2:	01 96       	adiw	r24, 0x01	; 1
+ 2a4:	90 93 94 00 	sts	0x0094, r25
+ 2a8:	80 93 93 00 	sts	0x0093, r24
+ 2ac:	06 c0       	rjmp	.+12     	; 0x2ba <_Z9serialGeth+0x62>
+ 2ae:	10 92 94 00 	sts	0x0094, r1
+ 2b2:	10 92 93 00 	sts	0x0093, r1
+ 2b6:	01 c0       	rjmp	.+2      	; 0x2ba <_Z9serialGeth+0x62>
+ 2b8:	20 e0       	ldi	r18, 0x00	; 0
+ 2ba:	82 2f       	mov	r24, r18
+ 2bc:	08 95       	ret
 
-00000340 <_exit>:
- 340:	f8 94       	cli
+000002be <_Z18serialTxBufferFullh>:
+ 2be:	88 23       	and	r24, r24
+ 2c0:	11 f0       	breq	.+4      	; 0x2c6 <_Z18serialTxBufferFullh+0x8>
+ 2c2:	80 e0       	ldi	r24, 0x00	; 0
+ 2c4:	08 95       	ret
+ 2c6:	80 91 80 00 	lds	r24, 0x0080
+ 2ca:	90 91 81 00 	lds	r25, 0x0081
+ 2ce:	20 91 7e 00 	lds	r18, 0x007E
+ 2d2:	30 91 7f 00 	lds	r19, 0x007F
+ 2d6:	01 96       	adiw	r24, 0x01	; 1
+ 2d8:	82 17       	cp	r24, r18
+ 2da:	93 07       	cpc	r25, r19
+ 2dc:	79 f0       	breq	.+30     	; 0x2fc <_Z18serialTxBufferFullh+0x3e>
+ 2de:	80 91 7e 00 	lds	r24, 0x007E
+ 2e2:	90 91 7f 00 	lds	r25, 0x007F
+ 2e6:	89 2b       	or	r24, r25
+ 2e8:	11 f0       	breq	.+4      	; 0x2ee <_Z18serialTxBufferFullh+0x30>
+ 2ea:	20 e0       	ldi	r18, 0x00	; 0
+ 2ec:	08 c0       	rjmp	.+16     	; 0x2fe <_Z18serialTxBufferFullh+0x40>
+ 2ee:	80 91 80 00 	lds	r24, 0x0080
+ 2f2:	90 91 81 00 	lds	r25, 0x0081
+ 2f6:	20 e0       	ldi	r18, 0x00	; 0
+ 2f8:	0f 97       	sbiw	r24, 0x0f	; 15
+ 2fa:	09 f4       	brne	.+2      	; 0x2fe <_Z18serialTxBufferFullh+0x40>
+ 2fc:	21 e0       	ldi	r18, 0x01	; 1
+ 2fe:	82 2f       	mov	r24, r18
+ 300:	08 95       	ret
 
-00000342 <__stop_program>:
- 342:	ff cf       	rjmp	.-2      	; 0x342 <__stop_program>
+00000302 <_Z11serialWritehh>:
+ 302:	1f 93       	push	r17
+ 304:	16 2f       	mov	r17, r22
+ 306:	88 23       	and	r24, r24
+ 308:	39 f5       	brne	.+78     	; 0x358 <_Z11serialWritehh+0x56>
+ 30a:	80 e0       	ldi	r24, 0x00	; 0
+ 30c:	d8 df       	rcall	.-80     	; 0x2be <_Z18serialTxBufferFullh>
+ 30e:	88 23       	and	r24, r24
+ 310:	e1 f7       	brne	.-8      	; 0x30a <_Z11serialWritehh+0x8>
+ 312:	e0 91 80 00 	lds	r30, 0x0080
+ 316:	f0 91 81 00 	lds	r31, 0x0081
+ 31a:	ee 57       	subi	r30, 0x7E	; 126
+ 31c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 31e:	10 83       	st	Z, r17
+ 320:	80 91 80 00 	lds	r24, 0x0080
+ 324:	90 91 81 00 	lds	r25, 0x0081
+ 328:	0f 97       	sbiw	r24, 0x0f	; 15
+ 32a:	50 f4       	brcc	.+20     	; 0x340 <_Z11serialWritehh+0x3e>
+ 32c:	80 91 80 00 	lds	r24, 0x0080
+ 330:	90 91 81 00 	lds	r25, 0x0081
+ 334:	01 96       	adiw	r24, 0x01	; 1
+ 336:	90 93 81 00 	sts	0x0081, r25
+ 33a:	80 93 80 00 	sts	0x0080, r24
+ 33e:	04 c0       	rjmp	.+8      	; 0x348 <_Z11serialWritehh+0x46>
+ 340:	10 92 81 00 	sts	0x0081, r1
+ 344:	10 92 80 00 	sts	0x0080, r1
+ 348:	80 91 92 00 	lds	r24, 0x0092
+ 34c:	88 23       	and	r24, r24
+ 34e:	21 f0       	breq	.+8      	; 0x358 <_Z11serialWritehh+0x56>
+ 350:	10 92 92 00 	sts	0x0092, r1
+ 354:	55 9a       	sbi	0x0a, 5	; 10
+ 356:	5d 9a       	sbi	0x0b, 5	; 11
+ 358:	1f 91       	pop	r17
+ 35a:	08 95       	ret
+
+0000035c <_Z17serialWriteStringhPKc>:
+ 35c:	cf 93       	push	r28
+ 35e:	df 93       	push	r29
+ 360:	eb 01       	movw	r28, r22
+ 362:	88 23       	and	r24, r24
+ 364:	71 f4       	brne	.+28     	; 0x382 <_Z17serialWriteStringhPKc+0x26>
+ 366:	61 15       	cp	r22, r1
+ 368:	71 05       	cpc	r23, r1
+ 36a:	41 f0       	breq	.+16     	; 0x37c <_Z17serialWriteStringhPKc+0x20>
+ 36c:	03 c0       	rjmp	.+6      	; 0x374 <_Z17serialWriteStringhPKc+0x18>
+ 36e:	21 96       	adiw	r28, 0x01	; 1
+ 370:	80 e0       	ldi	r24, 0x00	; 0
+ 372:	c7 df       	rcall	.-114    	; 0x302 <_Z11serialWritehh>
+ 374:	68 81       	ld	r22, Y
+ 376:	66 23       	and	r22, r22
+ 378:	d1 f7       	brne	.-12     	; 0x36e <_Z17serialWriteStringhPKc+0x12>
+ 37a:	03 c0       	rjmp	.+6      	; 0x382 <_Z17serialWriteStringhPKc+0x26>
+ 37c:	c8 e7       	ldi	r28, 0x78	; 120
+ 37e:	d0 e0       	ldi	r29, 0x00	; 0
+ 380:	f9 cf       	rjmp	.-14     	; 0x374 <_Z17serialWriteStringhPKc+0x18>
+ 382:	df 91       	pop	r29
+ 384:	cf 91       	pop	r28
+ 386:	08 95       	ret
+
+00000388 <_Z9setup_spihiih>:
+ 388:	fb 01       	movw	r30, r22
+ 38a:	20 3f       	cpi	r18, 0xF0	; 240
+ 38c:	29 f4       	brne	.+10     	; 0x398 <_Z9setup_spihiih+0x10>
+ 38e:	bb 98       	cbi	0x17, 3	; 23
+ 390:	bc 9a       	sbi	0x17, 4	; 23
+ 392:	ba 98       	cbi	0x17, 2	; 23
+ 394:	bd 98       	cbi	0x17, 5	; 23
+ 396:	05 c0       	rjmp	.+10     	; 0x3a2 <_Z9setup_spihiih+0x1a>
+ 398:	bb 9a       	sbi	0x17, 3	; 23
+ 39a:	bc 98       	cbi	0x17, 4	; 23
+ 39c:	bd 9a       	sbi	0x17, 5	; 23
+ 39e:	ba 9a       	sbi	0x17, 2	; 23
+ 3a0:	c2 9a       	sbi	0x18, 2	; 24
+ 3a2:	45 2b       	or	r20, r21
+ 3a4:	11 f4       	brne	.+4      	; 0x3aa <_Z9setup_spihiih+0x22>
+ 3a6:	50 e4       	ldi	r21, 0x40	; 64
+ 3a8:	01 c0       	rjmp	.+2      	; 0x3ac <_Z9setup_spihiih+0x24>
+ 3aa:	50 ec       	ldi	r21, 0xC0	; 192
+ 3ac:	20 3f       	cpi	r18, 0xF0	; 240
+ 3ae:	11 f4       	brne	.+4      	; 0x3b4 <_Z9setup_spihiih+0x2c>
+ 3b0:	40 e0       	ldi	r20, 0x00	; 0
+ 3b2:	01 c0       	rjmp	.+2      	; 0x3b6 <_Z9setup_spihiih+0x2e>
+ 3b4:	40 e1       	ldi	r20, 0x10	; 16
+ 3b6:	68 2f       	mov	r22, r24
+ 3b8:	70 e0       	ldi	r23, 0x00	; 0
+ 3ba:	81 fd       	sbrc	r24, 1
+ 3bc:	02 c0       	rjmp	.+4      	; 0x3c2 <_Z9setup_spihiih+0x3a>
+ 3be:	30 e0       	ldi	r19, 0x00	; 0
+ 3c0:	01 c0       	rjmp	.+2      	; 0x3c4 <_Z9setup_spihiih+0x3c>
+ 3c2:	38 e0       	ldi	r19, 0x08	; 8
+ 3c4:	61 70       	andi	r22, 0x01	; 1
+ 3c6:	70 70       	andi	r23, 0x00	; 0
+ 3c8:	66 0f       	add	r22, r22
+ 3ca:	77 1f       	adc	r23, r23
+ 3cc:	66 0f       	add	r22, r22
+ 3ce:	77 1f       	adc	r23, r23
+ 3d0:	75 e0       	ldi	r23, 0x05	; 5
+ 3d2:	ee 0f       	add	r30, r30
+ 3d4:	ff 1f       	adc	r31, r31
+ 3d6:	7a 95       	dec	r23
+ 3d8:	e1 f7       	brne	.-8      	; 0x3d2 <_Z9setup_spihiih+0x4a>
+ 3da:	86 2f       	mov	r24, r22
+ 3dc:	8e 2b       	or	r24, r30
+ 3de:	92 2f       	mov	r25, r18
+ 3e0:	92 70       	andi	r25, 0x02	; 2
+ 3e2:	89 2b       	or	r24, r25
+ 3e4:	92 2f       	mov	r25, r18
+ 3e6:	91 70       	andi	r25, 0x01	; 1
+ 3e8:	89 2b       	or	r24, r25
+ 3ea:	85 2b       	or	r24, r21
+ 3ec:	84 2b       	or	r24, r20
+ 3ee:	83 2b       	or	r24, r19
+ 3f0:	8d b9       	out	0x0d, r24	; 13
+ 3f2:	82 2f       	mov	r24, r18
+ 3f4:	90 e0       	ldi	r25, 0x00	; 0
+ 3f6:	96 95       	lsr	r25
+ 3f8:	87 95       	ror	r24
+ 3fa:	96 95       	lsr	r25
+ 3fc:	87 95       	ror	r24
+ 3fe:	81 70       	andi	r24, 0x01	; 1
+ 400:	8e b9       	out	0x0e, r24	; 14
+ 402:	08 95       	ret
+
+00000404 <_Z8send_spih>:
+ 404:	8f b9       	out	0x0f, r24	; 15
+ 406:	77 9b       	sbis	0x0e, 7	; 14
+ 408:	fe cf       	rjmp	.-4      	; 0x406 <_Z8send_spih+0x2>
+ 40a:	8f b1       	in	r24, 0x0f	; 15
+ 40c:	08 95       	ret
+
+0000040e <_exit>:
+ 40e:	f8 94       	cli
+
+00000410 <__stop_program>:
+ 410:	ff cf       	rjmp	.-2      	; 0x410 <__stop_program>

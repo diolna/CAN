@@ -7,13 +7,25 @@
 #include "serial.h"
 
 
+ISR(USART_RXC_vect){
+
+	if(serialHasChar(serialAvailable())){
+		if(serialGet(serialAvailable()) == 'D'){
+			DDRC |= (1<< PC0); // настройка  порта	pc0 на вывод данных
+			PORTC |= (1 << PC0); // вывод лог 1 в порт Pc0
+		}
+
+	}
+}
+
 
 
 int main() {
+	sei();
 
 	//инициализация USART
 	serialInit(serialAvailable(), BAUD(38400, F_CPU));
-	sei();
+
 	 serialWriteString(serialAvailable(), "Hello from UART");
 	 serialWrite(serialAvailable(), serialAvailable() + '0');
 	 serialWriteString(serialAvailable(), "... :)\n");

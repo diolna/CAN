@@ -5,7 +5,7 @@ c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi
 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
                               c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-                              ./serial.o (__do_copy_data)
+                              ./main.o (__do_copy_data)
 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
                               ./serial.o (__do_clear_bss)
 
@@ -17,7 +17,6 @@ Discarded input sections
  .data          0x00000000        0x0 ./atmega.o
  .bss           0x00000000        0x0 ./atmega.o
  .text          0x00000000        0x0 ./main.o
- .data          0x00000000        0x0 ./main.o
  .bss           0x00000000        0x0 ./main.o
  .text          0x00000000        0x0 ./mcp2515.o
  .data          0x00000000        0x0 ./mcp2515.o
@@ -53,31 +52,20 @@ Discarded input sections
  .text.mcp2515_intStatus
                 0x00000000        0x0 ./mcp2515.o
  .text          0x00000000        0x0 ./serial.o
- .data          0x00000000        0x0 ./serial.o
  .bss           0x00000000        0x0 ./serial.o
- .text._Z15serialAvailablev
-                0x00000000        0x0 ./serial.o
- .text._Z10serialInithj
-                0x00000000        0x0 ./serial.o
  .text._Z11serialCloseh
-                0x00000000        0x0 ./serial.o
- .text._Z13serialHasCharh
-                0x00000000        0x0 ./serial.o
- .text._Z9serialGeth
                 0x00000000        0x0 ./serial.o
  .text._Z17serialGetBlockingh
                 0x00000000        0x0 ./serial.o
+ .text._Z18serialRxBufferFullh
+                0x00000000        0x0 ./serial.o
  .text._Z19serialRxBufferEmptyh
-                0x00000000        0x0 ./serial.o
- .text._Z18serialTxBufferFullh
-                0x00000000        0x0 ./serial.o
- .text._Z11serialWritehh
-                0x00000000        0x0 ./serial.o
- .text._Z17serialWriteStringhPKc
                 0x00000000        0x0 ./serial.o
  .text._Z16serialWriteInt16hj
                 0x00000000        0x0 ./serial.o
  .text._Z19serialTxBufferEmptyh
+                0x00000000        0x0 ./serial.o
+ .text.__vector_11
                 0x00000000        0x0 ./serial.o
  .text          0x00000000        0x0 ./spi.o
  .data          0x00000000        0x0 ./spi.o
@@ -218,7 +206,7 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x344
+.text           0x00000000      0x498
  *(.vectors)
  .vectors       0x00000000       0x26 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vectors
@@ -293,45 +281,63 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
                 0x0000005c                __vector_18
                 0x0000005e                . = ALIGN (0x2)
  *(.text.*)
- .text.main     0x0000005e       0x2a ./main.o
+ .text.main     0x0000005e       0x54 ./main.o
                 0x0000005e                main
- .text.internal_spiChipSelect
-                0x00000088        0xe ./mcp2515.o
- .text.mcp2515_bitModify
-                0x00000096       0x2c ./mcp2515.o
-                0x00000096                mcp2515_bitModify
- .text.mcp2515_writeRegister
-                0x000000c2       0x22 ./mcp2515.o
-                0x000000c2                mcp2515_writeRegister
- .text.mcp2515_readRegister
-                0x000000e4       0x20 ./mcp2515.o
-                0x000000e4                mcp2515_readRegister
- .text.mcp2515_setBitTiming
-                0x00000104       0x38 ./mcp2515.o
-                0x00000104                mcp2515_setBitTiming
- .text.mcp2515_setCanSpeed
-                0x0000013c       0x32 ./mcp2515.o
-                0x0000013c                mcp2515_setCanSpeed
- .text._Z18serialRxBufferFullh
-                0x0000016e       0x44 ./serial.o
-                0x0000016e                serialRxBufferFull(unsigned char)
  .text.__vector_11
-                0x000001b2       0x84 ./serial.o
-                0x000001b2                __vector_11
+                0x000000b2       0x58 ./main.o
+                0x000000b2                __vector_11
+ .text.internal_spiChipSelect
+                0x0000010a        0xe ./mcp2515.o
+ .text.mcp2515_bitModify
+                0x00000118       0x2c ./mcp2515.o
+                0x00000118                mcp2515_bitModify
+ .text.mcp2515_writeRegister
+                0x00000144       0x22 ./mcp2515.o
+                0x00000144                mcp2515_writeRegister
+ .text.mcp2515_readRegister
+                0x00000166       0x20 ./mcp2515.o
+                0x00000166                mcp2515_readRegister
+ .text.mcp2515_setBitTiming
+                0x00000186       0x38 ./mcp2515.o
+                0x00000186                mcp2515_setBitTiming
+ .text.mcp2515_setCanSpeed
+                0x000001be       0x34 ./mcp2515.o
+                0x000001be                mcp2515_setCanSpeed
+ .text._Z15serialAvailablev
+                0x000001f2        0x4 ./serial.o
+                0x000001f2                serialAvailable()
+ .text._Z10serialInithj
+                0x000001f6       0x3e ./serial.o
+                0x000001f6                serialInit(unsigned char, unsigned int)
+ .text._Z13serialHasCharh
+                0x00000234       0x26 ./serial.o
+                0x00000234                serialHasChar(unsigned char)
+ .text._Z9serialGeth
+                0x0000025a       0x66 ./serial.o
+                0x0000025a                serialGet(unsigned char)
+ .text._Z18serialTxBufferFullh
+                0x000002c0       0x44 ./serial.o
+                0x000002c0                serialTxBufferFull(unsigned char)
+ .text._Z11serialWritehh
+                0x00000304       0x5a ./serial.o
+                0x00000304                serialWrite(unsigned char, unsigned char)
+ .text._Z17serialWriteStringhPKc
+                0x0000035e       0x2c ./serial.o
+                0x0000035e                serialWriteString(unsigned char, char const*)
  .text.__vector_12
-                0x00000236       0x84 ./serial.o
-                0x00000236                __vector_12
+                0x0000038a       0x84 ./serial.o
+                0x0000038a                __vector_12
  .text._Z9setup_spihiih
-                0x000002ba       0x7c ./spi.o
-                0x000002ba                setup_spi(unsigned char, int, int, unsigned char)
+                0x0000040e       0x7c ./spi.o
+                0x0000040e                setup_spi(unsigned char, int, int, unsigned char)
  .text._Z8send_spih
-                0x00000336        0xa ./spi.o
-                0x00000336                send_spi(unsigned char)
-                0x00000340                . = ALIGN (0x2)
+                0x0000048a        0xa ./spi.o
+                0x0000048a                send_spi(unsigned char)
+                0x00000494                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000340        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                0x00000340                exit
-                0x00000340                _exit
+ .fini9         0x00000494        0x0 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x00000494                exit
+                0x00000494                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -350,50 +356,53 @@ LOAD c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000340        0x4 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .fini0         0x00000494        0x4 c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000344                _etext = .
+                0x00000498                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000344
+.data           0x00800060       0x1e load address 0x00000498
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
+ .data          0x00800060       0x18 ./main.o
+ .data          0x00800078        0x5 ./serial.o
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800060                . = ALIGN (0x2)
-                0x00800060                _edata = .
-                0x00800060                PROVIDE (__data_end, .)
+                0x0080007e                . = ALIGN (0x2)
+ *fill*         0x0080007d        0x1 00
+                0x0080007e                _edata = .
+                0x0080007e                PROVIDE (__data_end, .)
 
-.bss            0x00800060       0x39
-                0x00800060                PROVIDE (__bss_start, .)
+.bss            0x0080007e       0x39
+                0x0080007e                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss._ZL6txRead
-                0x00800060        0x2 ./serial.o
+                0x0080007e        0x2 ./serial.o
  .bss._ZL7txWrite
-                0x00800062        0x2 ./serial.o
+                0x00800080        0x2 ./serial.o
  .bss._ZL8txBuffer
-                0x00800064       0x10 ./serial.o
+                0x00800082       0x10 ./serial.o
  .bss._ZL23shouldStartTransmission
-                0x00800074        0x1 ./serial.o
+                0x00800092        0x1 ./serial.o
  .bss._ZL7rxWrite
-                0x00800075        0x2 ./serial.o
+                0x00800093        0x2 ./serial.o
  .bss._ZL8rxBuffer
-                0x00800077       0x20 ./serial.o
+                0x00800095       0x20 ./serial.o
  .bss._ZL6rxRead
-                0x00800097        0x2 ./serial.o
+                0x008000b5        0x2 ./serial.o
  *(COMMON)
-                0x00800099                PROVIDE (__bss_end, .)
-                0x00000344                __data_load_start = LOADADDR (.data)
-                0x00000344                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008000b7                PROVIDE (__bss_end, .)
+                0x00000498                __data_load_start = LOADADDR (.data)
+                0x000004b6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800099        0x0
-                0x00800099                PROVIDE (__noinit_start, .)
+.noinit         0x008000b7        0x0
+                0x008000b7                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800099                PROVIDE (__noinit_end, .)
-                0x00800099                _end = .
-                0x00800099                PROVIDE (__heap_start, .)
+                0x008000b7                PROVIDE (__noinit_end, .)
+                0x008000b7                _end = .
+                0x008000b7                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -487,6 +496,7 @@ __do_clear_bss                                    c:/eclipse_ide/winavr-20100110
                                                   ./serial.o
 __do_copy_data                                    c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
                                                   ./serial.o
+                                                  ./main.o
 __heap_end                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __init                                            c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __stack                                           c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -495,6 +505,7 @@ __udivmodhi4                                      c:/eclipse_ide/winavr-20100110
 __vector_1                                        c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __vector_10                                       c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __vector_11                                       ./serial.o
+                                                  ./main.o
                                                   c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
 __vector_12                                       ./serial.o
                                                   c:/eclipse_ide/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -546,17 +557,23 @@ send_spi(unsigned char)                           ./spi.o
                                                   ./mcp2515.o
                                                   ./main.o
 serialAvailable()                                 ./serial.o
+                                                  ./main.o
 serialClose(unsigned char)                        ./serial.o
 serialGet(unsigned char)                          ./serial.o
+                                                  ./main.o
 serialGetBlocking(unsigned char)                  ./serial.o
 serialHasChar(unsigned char)                      ./serial.o
+                                                  ./main.o
 serialInit(unsigned char, unsigned int)           ./serial.o
+                                                  ./main.o
 serialRxBufferEmpty(unsigned char)                ./serial.o
 serialRxBufferFull(unsigned char)                 ./serial.o
 serialTxBufferEmpty(unsigned char)                ./serial.o
 serialTxBufferFull(unsigned char)                 ./serial.o
 serialWrite(unsigned char, unsigned char)         ./serial.o
+                                                  ./main.o
 serialWriteInt16(unsigned char, unsigned int)     ./serial.o
 serialWriteString(unsigned char, char const*)     ./serial.o
+                                                  ./main.o
 setup_spi(unsigned char, int, int, unsigned char) ./spi.o
                                                   ./main.o
